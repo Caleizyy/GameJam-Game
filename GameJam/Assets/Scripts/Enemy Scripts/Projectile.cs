@@ -14,6 +14,10 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, lifetime);
         sprite = GetComponent<SpriteRenderer>();
+        if (GameManager.hideEnemies)
+        {
+            sprite.enabled = false;
+        }
     }
     void Update()
     {

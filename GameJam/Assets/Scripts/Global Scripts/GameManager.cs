@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     {
         IsGamePaused = false;
         Time.timeScale = 1f;
+        hidePlatforms = true;
+        hideEnemies= true;
+        hideHazards = true;
     }
     void Update()
     {

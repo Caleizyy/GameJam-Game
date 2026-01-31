@@ -23,13 +23,19 @@ public class PlayerMaskActions : MonoBehaviour
             {
                 GameManager.hideHazards = false;
                 GameManager.hideEnemies = true;
-                GameManager.hidePlatforms = false;
+                GameManager.hidePlatforms = true;
             }
             if (mask2.triggered)
             {
-                GameManager.hideHazards = false;
+                GameManager.hideHazards = true;
                 GameManager.hideEnemies = false;
                 GameManager.hidePlatforms = true;
+            }
+            if (mask3.triggered)
+            {
+                GameManager.hideHazards = true;
+                GameManager.hideEnemies = true;
+                GameManager.hidePlatforms = false;
             }
         }
     }

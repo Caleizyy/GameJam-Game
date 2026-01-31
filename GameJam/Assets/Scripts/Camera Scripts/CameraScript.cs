@@ -16,7 +16,7 @@ public class CameraScript : MonoBehaviour
         Vector3 targetPos = player.position + offset;
         targetPos.x = Mathf.Clamp(targetPos.x, minBounds.x, maxBounds.x);
         targetPos.y = Mathf.Clamp(targetPos.y, minBounds.y, maxBounds.y);
-        transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.unscaledDeltaTime);
         if (GameManager.IsGamePaused)
         {
             zoomTimer += Time.unscaledDeltaTime;

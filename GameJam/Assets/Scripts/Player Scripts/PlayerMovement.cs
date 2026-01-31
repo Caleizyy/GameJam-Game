@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = false;
     private bool isFacingLeft = false;
 
-    // Input System
     private PlayerInput playerInput;
     private InputAction moveAction;
     private InputAction jumpAction;
@@ -18,8 +17,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        // Get Input System
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];

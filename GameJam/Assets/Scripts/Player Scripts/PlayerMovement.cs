@@ -25,25 +25,21 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Vector2 moveInput = moveAction.ReadValue<Vector2>();
-        float horizontal = moveInput.x;
 
-        if (horizontal > 0f)
+        if (moveInput.x != 0f && !GameManager.IsGamePaused)
         {
-            if (isFacingLeft)
+            if (!isFacingLeft && moveInput.x > 0f)
             {
                 transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+                isFacingLeft = true;
             }
-            isFacingLeft = true;
-        }
-        else if (horizontal < 0f)
-        {
-            if (!isFacingLeft)
+            else if (isFacingLeft && moveInput.x < 0f)
             {
                 transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+                isFacingLeft = false;
             }
-            isFacingLeft = false;
         }
-        rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
 
         bool isJumpHeld = jumpAction.IsPressed();
 
@@ -57,15 +53,6 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -73,4 +60,19 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+    
 }

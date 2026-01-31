@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Shooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public Transform firePoint;
@@ -9,7 +9,7 @@ public class Turret : MonoBehaviour
     private float time = 0f;
     void Update()
     {
-        time+= Time.deltaTime;
+        time += Time.deltaTime;
         if (time >= fireInterval)
         {
             Shoot();

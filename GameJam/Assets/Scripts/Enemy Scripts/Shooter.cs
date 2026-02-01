@@ -18,7 +18,7 @@ public class Shooter : MonoBehaviour
     }
     void Shoot()
     {
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, transform.rotation);
         projectile.transform.rotation = transform.rotation;
     }
 }

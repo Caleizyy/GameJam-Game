@@ -50,8 +50,6 @@ public class Projectile : MonoBehaviour
         {
             startScalling = true;
             GameManager.PauseEverything();
-            other.gameObject.GetComponent<PlayerDeath>().Die();
         }
-
     }
 }

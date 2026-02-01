@@ -73,6 +73,5 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
         }
-    }
-    
+    }  
 }

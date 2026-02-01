@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 moveInput = moveAction.ReadValue<Vector2>();
 
-        if (moveInput.x != 0f && !GameManager.IsGamePaused)
+        if (moveInput.x != 0f && Time.timeScale !=0f)
         {
             if (!isFacingLeft && moveInput.x > 0f)
             {
